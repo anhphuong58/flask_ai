@@ -1,0 +1,9 @@
+from transformers import pipeline
+summarizer = pipeline("summarization")
+classify = pipeline("text-classification")
+print("abcd")
+ARTICLE = """
+World War II ended with the complete collapse of Nazi Germany, Italy, and Japan. Victory belongs to the peoples of the world who have steadfastly fought against the brutal fascism. In which the great powers of the Soviet Union, the United States, and the United Kingdom are the mainstay forces, playing a decisive role in the destruction of fascism. Before this defeat, Japan was occupied by the United States, and the Soviet Union occupied the countries of Eastern Europe. Italy remained independent and peaceful thanks to the last two years of the war on the side of the Allies. Germany was divided into East Germany and West Germany. The consequences of this war are extremely heavy and terrible, more than 70 countries with 1700 million people have been caught up in the war, about 60 million people died, 90 million people were disabled, 4 trillion dollars in damage, ten times more than World War I. The war ended with the complete defeat of the German-Italian-Japanese fascist bloc. These are the countries that started the war, as well as the desire to establish a new world order. The economies of countries are seriously affected not only by countries directly participating but also by countries that do not. Political, economic and social activities of the people are threatened and unstable. This is considered a senseless war, when both the winners and losers suffered heavy and serious damage.
+"""
+print(summarizer(ARTICLE, max_length=130, min_length=30, do_sample=False))
+print(classify(ARTICLE))
